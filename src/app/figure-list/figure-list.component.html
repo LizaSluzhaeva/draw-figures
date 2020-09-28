@@ -1,11 +1,16 @@
 <h2> Available figures for drawing: </h2>
 
-<div *ngFor="let figure of figures">
+<div *ngFor="let figure of figures; index as figureID">
 
   <h3>
-    {{ figure.name }}
+    <a [title]="figure.name + ''" [routerLink]="['/figures',figureID]">
+      {{ figure.name }}
+    </a>
   </h3>
-
+  <p *ngIf="figure.description">
+    Description: {{ figure.description }}
+  </p>
+  <!-- . . . -->
 </div>
 
 
